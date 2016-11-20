@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.0</version>
-    <date>2016-11-19T04:19:19Z</date>
+    <date>2016-11-20T13:45:41Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -219,7 +219,7 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>Vvoltage 5v</name>
+                    <name>Voltage 5v</name>
                     <type>1</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>1</multiplier>
@@ -563,7 +563,7 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>Atual</name>
+                    <name>Corrente Atual</name>
                     <type>1</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>0</multiplier>
@@ -2141,7 +2141,7 @@
     <triggers>
         <trigger>
             <expression>{Template SNMP RouterOS:icmppingloss.min(5m)}&gt;20</expression>
-            <name>A perda de ping está muito alta para  {HOST.NAME}</name>
+            <name>A perda de ping está muito alta para  {HOST.NAME} no  IP: {HOST.CONN}</name>
             <url/>
             <status>0</status>
             <priority>2</priority>
@@ -2149,14 +2149,14 @@
             <type>0</type>
             <dependencies>
                 <dependency>
-                    <name>{HOST.NAME} Não está disponível por ICMP</name>
+                    <name>{HOST.NAME} Não está disponível por ICMP no  IP: {HOST.CONN}</name>
                     <expression>{Template SNMP RouterOS:icmpping.max(#3)}=0</expression>
                 </dependency>
             </dependencies>
         </trigger>
         <trigger>
             <expression>{Template SNMP RouterOS:icmppingsec.avg(5m)}&gt;0.15</expression>
-            <name>O tempo de resposta é muito alto para {HOST.NAME}</name>
+            <name>O tempo de resposta é muito alto para {HOST.NAME} no  IP: {HOST.CONN}</name>
             <url/>
             <status>0</status>
             <priority>2</priority>
@@ -2164,14 +2164,14 @@
             <type>0</type>
             <dependencies>
                 <dependency>
-                    <name>{HOST.NAME} Não está disponível por ICMP</name>
+                    <name>{HOST.NAME} Não está disponível por ICMP no  IP: {HOST.CONN}</name>
                     <expression>{Template SNMP RouterOS:icmpping.max(#3)}=0</expression>
                 </dependency>
             </dependencies>
         </trigger>
         <trigger>
             <expression>{Template SNMP RouterOS:icmpping.last()}=0</expression>
-            <name>Ping</name>
+            <name>Ping {HOST.NAME} IP: {HOST.CONN}</name>
             <url/>
             <status>0</status>
             <priority>0</priority>
@@ -2181,7 +2181,7 @@
         </trigger>
         <trigger>
             <expression>{Template SNMP RouterOS:icmpping.max(#3)}=0</expression>
-            <name>{HOST.NAME} Não está disponível por ICMP</name>
+            <name>{HOST.NAME} Não está disponível por ICMP no  IP: {HOST.CONN}</name>
             <url/>
             <status>0</status>
             <priority>3</priority>
