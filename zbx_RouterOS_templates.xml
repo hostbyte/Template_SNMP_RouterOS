@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.0</version>
-    <date>2016-11-23T13:21:45Z</date>
+    <date>2016-11-23T16:17:24Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -90,7 +90,7 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>Perda de Ping</name>
+                    <name>Perda de Pacotes</name>
                     <type>3</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -2141,7 +2141,7 @@
     <triggers>
         <trigger>
             <expression>{Template SNMP RouterOS:icmppingloss.min(5m)}&gt;20</expression>
-            <name>A perda de ping está muito alta para  {HOST.NAME} no  IP: {HOST.CONN}</name>
+            <name>A perda de pacotes está muito alta para  {HOST.NAME} no  IP: {HOST.CONN}</name>
             <url/>
             <status>0</status>
             <priority>2</priority>
@@ -2171,7 +2171,7 @@
         </trigger>
         <trigger>
             <expression>{Template SNMP RouterOS:icmpping.last()}=0</expression>
-            <name>Ping {HOST.NAME} IP: {HOST.CONN}</name>
+            <name>Perda de pacotes para {HOST.NAME} no IP: {HOST.CONN}</name>
             <url/>
             <status>0</status>
             <priority>0</priority>
